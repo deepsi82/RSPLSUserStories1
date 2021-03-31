@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -16,8 +21,5 @@
   "bugs": {
     "url": "https://github.com/deepsi82/RSPLSUserStories1/issues"
   },
-  "homepage": "https://github.com/deepsi82/RSPLSUserStories1#readme",
-  "dependencies": {
-    "prompt-sync": "^4.2.0"
-  }
+  "homepage": "https://github.com/deepsi82/RSPLSUserStories1#readme"
 }
