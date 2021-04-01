@@ -6,6 +6,7 @@ class Player{
         this.score = 0;
         this.gesture = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
     }
+    
 } 
 class Human extends Player{
     constructor(name){
