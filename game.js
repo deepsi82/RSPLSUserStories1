@@ -15,9 +15,13 @@ class Game{
         this.displayRules();
         
         while(this.playerOne.score < 3 && this.playerTwo.score < 3){
-
-            let playerOneInput = promptfor("Enter playerOne Choice : ", chars);
+        // for (let i = 0; i < 3; i++){
+            
+       this.displayChoices();
+            
+        let playerOneInput = promptfor("Enter playerOne Choice : ", chars);
             let playerTwoInput = promptfor("Enter playerTwo Choice : ", chars);
+
 
         if(playerOneInput === "rock" && playerTwoInput === "scissors"){
             this.playerOne.score += 1;
@@ -132,8 +136,6 @@ class Game{
     }
 }
 
- 
-    
 this.displayGameWinner();
 }
 
@@ -142,18 +144,25 @@ displayRules(){
     console.log("Minimum a 'best of three' to decide a winner");
     console.log("Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard, Lizard poisons Spock, Spock smashes Scissors, Scissors decapitates Lizard, Lizard eats Paper, Paper disproves Spock, Spock vaporizes Rock ");
 }
+displayChoices(){
+    console.log(this.playerOne.gesture);
+    console.log(this.playerTwo.gesture);
+}
+
+
+
 displayGameWinner() {
-    if(this.playerOne.Score > this.playerTwo.Score) {
-        console.log(this.playerOne.name + " wins this game! with the score of " + this.playerOne.Score);
+    if(this.playerOne.score > this.playerTwo.score) {
+        console.log(this.playerOne.name + " wins this game! with the score of " + this.playerOne.score);
     }
     else {
-        console.log(this.playerTwo.name + " wins this game! with the score of " + this.playerTwo.Score);
+        console.log(this.playerTwo.name + " wins this game! with the score of " + this.playerTwo.score);
     }
 }
 
 }
 function chars(input){
-    return true; // default validation only
+    return true; 
 }
 
   module.exports = Game;        
