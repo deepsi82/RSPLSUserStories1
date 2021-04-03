@@ -1,34 +1,36 @@
 "use stricts";
 
 const Player = require('./Player');
-let player = new Player();
+const Human = require('./player');
+
+// let player = new Player();
 
 const promptfor = require("prompt-sync")();
-        
+
 class Game{
     constructor(){
-        this.playerOne = new Player("Deepa");
-        this.playerTwo = new Player("Sruthi");
+        this.playerOne = new Player.Human("Deepa");
+        this.playerTwo = new Player.Human("Sruthi");
+        
     }
-
+    
     runGame() {
         this.displayRules();
         
         while(this.playerOne.score < 3 && this.playerTwo.score < 3){
-        // for (let i = 0; i < 3; i++){
+         
+       this.playerOne.displayChoices();
+       let playerOneInput = this.playerOne.humanChoice();
             
-       this.displayChoices();
-            
-        let playerOneInput = promptfor("Enter playerOne Choice : ", chars);
-            let playerTwoInput = promptfor("Enter playerTwo Choice : ", chars);
-
+        this.playerOne.displayChoices();
+        let playerTwoInput = this.playerTwo.humanChoice();
 
         if(playerOneInput === "rock" && playerTwoInput === "scissors"){
             this.playerOne.score += 1;
             console.log("PlayerOne score is : " + " " + this.playerOne.score);
         }
         else{
-         if(playerOneInput === "scissors" && playerTwoInput === "rock"){
+         if(playerOneInput === "scissors" && this.playerTwoInput === "rock"){
             this.playerTwo.score += 1;
             console.log("PlayerTwo score is : " + " " + this.playerTwo.score);
         }
@@ -144,11 +146,6 @@ displayRules(){
     console.log("Minimum a 'best of three' to decide a winner");
     console.log("Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard, Lizard poisons Spock, Spock smashes Scissors, Scissors decapitates Lizard, Lizard eats Paper, Paper disproves Spock, Spock vaporizes Rock ");
 }
-displayChoices(){
-    console.log(this.playerOne.gesture);
-    console.log(this.playerTwo.gesture);
-}
-
 
 
 displayGameWinner() {
@@ -160,9 +157,6 @@ displayGameWinner() {
     }
 }
 
-}
-function chars(input){
-    return true; 
 }
 
   module.exports = Game;        

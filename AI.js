@@ -3,3 +3,8 @@ class Ai extends Player{
         super(name);
     }
 }  
+// randomChoice(){
+//     let randamchoice1 = this.gesture(Math.floor(Math.random() * this.gesture.length));
+// //     // console.log(this.randomChoice1);
+// //     return this.randomChoice1;
+// // }
