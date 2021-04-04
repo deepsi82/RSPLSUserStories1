@@ -2,6 +2,7 @@
 
 const Player = require('./Player');
 const Human = require('./player');
+const Ai = require('./player');
 
 // let player = new Player();
 
@@ -10,7 +11,9 @@ const promptfor = require("prompt-sync")();
 class Game{
     constructor(){
         this.playerOne = new Player.Human("Deepa");
-        this.playerTwo = new Player.Human("Sruthi");
+        // this.playerTwo = new Player.Human("Sruthi");  //use this for multiple player human vs human
+
+        this.playerTwo = new Player.Ai("Sruthi"); //use this for single player human vs Ai
         
     }
     
@@ -22,8 +25,8 @@ class Game{
        this.playerOne.displayChoices();
        let playerOneInput = this.playerOne.humanChoice();
             
-        this.playerOne.displayChoices();
-        let playerTwoInput = this.playerTwo.humanChoice();
+    //    this.playerTwo.displayChoices();
+        let playerTwoInput = this.playerTwo.aiRandomChoice();
 
         if(playerOneInput === "rock" && playerTwoInput === "scissors"){
             this.playerOne.score += 1;
