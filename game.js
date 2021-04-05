@@ -1,10 +1,11 @@
 "use stricts";
 
 const Player = require('./Player');
-const Human = require('./player');
-const Ai = require('./player');
+// const Human = require('./player');
+// const Ai = require('./player');
+// const Ai = require('./Ai');
 
-// let player = new Player();
+
 
 const promptfor = require("prompt-sync")();
 
@@ -26,142 +27,71 @@ class Game{
        let playerOneInput = this.playerOne.humanChoice();
             
     //    this.playerTwo.displayChoices();
+    //    let playerTwoInput = this.playerTwo.humanChoice();  //use this for multiple player human vs human
+
         let playerTwoInput = this.playerTwo.aiRandomChoice();
 
-        if(playerOneInput === "rock" && playerTwoInput === "scissors"){
-            this.playerOne.score += 1;
+        if((playerOneInput === "rock" && playerTwoInput === "scissors") || 
+        (playerOneInput === "scissors" && playerTwoInput === "paper") || 
+        (playerOneInput === "paper" && playerTwoInput === "rock") || 
+        (playerOneInput === "rock" && playerTwoInput === "lizard") || 
+        (playerOneInput === "lizard" && playerTwoInput === "spock") || 
+        (playerOneInput === "spock" && playerTwoInput === "scissors")||
+        (playerOneInput === "scissors" && playerTwoInput === "lizard") ||
+        (playerOneInput === "lizard" && playerTwoInput === "paper") ||
+        (playerOneInput === "paper" && playerTwoInput === "spock") ||
+        (playerOneInput === "spock" && playerTwoInput === "rock"))
+        {
+             this.playerOne.score += 1;
             console.log("PlayerOne score is : " + " " + this.playerOne.score);
         }
-        else{
-         if(playerOneInput === "scissors" && this.playerTwoInput === "rock"){
+       
+        else if
+        ((playerOneInput === "scissors" && playerTwoInput === "rock") ||
+        (playerOneInput === "paper" && playerTwoInput === "scissors") || 
+        (playerOneInput === "rock" && playerTwoInput === "paper") || 
+        (playerOneInput === "lizard" && playerTwoInput === "rock") || 
+        (playerOneInput === "spock" && playerTwoInput === "lizard") || 
+        (playerOneInput === "scissors" && playerTwoInput === "spock")||
+        (playerOneInput === "lizard" && playerTwoInput === "scissors") ||
+        (playerOneInput === "paper" && playerTwoInput === "lizard") ||
+        (playerOneInput === "spock" && playerTwoInput === "paper") ||
+        (playerOneInput === "rock" && playerTwoInput === "spock"))
+        {
             this.playerTwo.score += 1;
-            console.log("PlayerTwo score is : " + " " + this.playerTwo.score);
+             console.log("PlayerTwo score is : " + " " + this.playerTwo.score);
         }
-        if(playerOneInput === "scissors" && playerTwoInput === "paper"){
-            this.playerOne.score += 1;
-            console.log("PlayerOne score is : " + " " + this.playerOne.score);
-        }
-        if(playerOneInput === "paper" && playerTwoInput === "scissors"){
-            this.playerTwo.score += 1;
-            console.log("PlayerTwo score is : " + " " + this.playerTwo.score);
-        }
-        if(playerOneInput === "paper" && playerTwoInput === "rock"){
-            this.playerOne.score += 1;
-            console.log("PlayerOne score is : " + " " + this.playerOne.score);
-        }
-        if(playerOneInput === "rock" && playerTwoInput === "paper"){
-            this.playerTwo.score += 1;
-            console.log("PlayerTwo score is : " + " " + this.playerTwo.score);
-        }
-        if(playerOneInput === "rock" && playerTwoInput === "lizard"){
-            this.playerOne.score = this.playerOne.score + 1;
-            console.log("PlayerOne score is : " + " " + this.playerOne.score);
 
+         if
+        ((playerOneInput === "rock" && playerTwoInput === "rock") || 
+        (playerOneInput === "paper" && playerTwoInput === "paper") ||
+        (playerOneInput === "scissors" && playerTwoInput === "scissors") ||
+        (playerOneInput === "lizard" && playerTwoInput === "lizard") ||
+        (playerOneInput === "spock" && playerTwoInput === "spock"))
+        {
+            console.log("No score for both ,play again");
         }
-        if(playerOneInput === "lizard" && playerTwoInput === "rock"){
-            this.playerTwo.score = this.playerTwo.score + 1;
-            console.log("PlayerTwo score is : " + " " + this.playerTwo.score);
-
+        
         }
-        if(playerOneInput === "lizard" && playerTwoInput === "spock"){
-            this.playerOne.score = this.playerOne.score + 1;
-            console.log("PlayerOne score is : " + " " + this.playerOne.score);
-
-        }
-        if(playerOneInput === "spock" && playerTwoInput === "lizard"){
-            this.playerTwo.score = this.playerTwo.score + 1;
-            console.log("PlayerTwo score is : " + " " + this.playerTwo.score);
-
-        }
-        if(playerOneInput === "spock" && playerTwoInput === "scissors"){
-            this.playerOne.score = this.playerOne.score + 1;
-            console.log("PlayerOne score is : " + " " + this.playerOne.score);
-
-        }
-        if(playerOneInput === "scissors" && playerTwoInput === "spock"){
-            this.playerTwo.score = this.playerTwo.score + 1;
-            console.log("PlayerTwo score is : " + " " + this.playerTwo.score);
-
-        }
-        if(playerOneInput === "scissors" && playerTwoInput === "lizard"){
-            this.playerOne.score = this.playerOne.score + 1;
-            console.log("PlayerOne score is : " + " " + this.playerOne.score);
-
-        }
-        if(playerOneInput === "lizard" && playerTwoInput === "scissors"){
-            this.playerTwo.score = this.playerTwo.score + 1;
-            console.log("PlayerTwo score is : " + " " + this.playerTwo.score);
-
-        }
-        if(playerOneInput === "lizard" && playerTwoInput === "paper"){
-            this.playerOne.score = this.playerOne.score + 1;
-            console.log("PlayerOne score is : " + " " + this.playerOne.score);
-
-        }
-        if(playerOneInput === "paper" && playerTwoInput === "lizard"){
-            this.playerTwo.score = this.playerTwo.score + 1;
-            console.log("PlayerTwo score is : " + " " + this.playerTwo.score);
-
-        }
-        if(playerOneInput === "paper" && playerTwoInput === "spock"){
-            this.playerOne.score = this.playerOne.score + 1;
-            console.log("PlayerOne score is : " + " " + this.playerOne.score);
-
-        }
-        if(playerOneInput === "spock" && playerTwoInput === "paper"){
-            this.playerTwo.score = this.playerTwo.score + 1;
-            console.log("PlayerTwo score is : " + " " + this.playerTwo.score);
-
-        }
-        if(playerOneInput === "spock" && playerTwoInput === "rock"){
-            this.playerOne.score = this.playerOne.score + 1;
-            console.log("PlayerOne score is : " + " " + this.playerOne.score);
-
-        }
-        if(playerOneInput=== "rock" && playerTwoInput === "spock"){
-            this.playerTwo.score = this.playerTwo.score + 1;
-            
-        }
-        if(playerOneInput === "rock" && playerTwoInput === "rock"){
-            console.log("there is a tie,play again");
-        }
-        if(playerOneInput === "paper" && playerTwoInput === "paper"){
-            console.log("there is a tie,play again");
-        }
-        if(playerOneInput === "scissors" && playerTwoInput === "scissors"){
-            console.log("there is a tie,play again");
-        }
-        if(playerOneInput === "lizard" && playerTwoInput === "lizard"){
-            console.log("there is a tie,play again");
-        }
-        if(playerOneInput === "spock" && playerTwoInput === "spock"){
-            console.log("there is a tie,play again");
-        } 
-
+        
+    this.displayGameWinner();
     }
-}
-
-this.displayGameWinner();
-}
-
-displayRules(){
-    console.log("Welcome to the RPSLS Game!");
-    console.log("Minimum a 'best of three' to decide a winner");
-    console.log("Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard, Lizard poisons Spock, Spock smashes Scissors, Scissors decapitates Lizard, Lizard eats Paper, Paper disproves Spock, Spock vaporizes Rock ");
-}
-
-
-displayGameWinner() {
-    if(this.playerOne.score > this.playerTwo.score) {
-        console.log(this.playerOne.name + " wins this game! with the score of " + this.playerOne.score);
+    displayRules(){
+        console.log("Welcome to the RPSLS Game!");
+        console.log("Minimum a 'best of three' to decide a winner");
+        console.log("Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard, Lizard poisons Spock, Spock smashes Scissors, Scissors decapitates Lizard, Lizard eats Paper, Paper disproves Spock, Spock vaporizes Rock ");
     }
-    else {
-        console.log(this.playerTwo.name + " wins this game! with the score of " + this.playerTwo.score);
+        
+        
+    displayGameWinner() {
+        if(this.playerOne.score > this.playerTwo.score) {
+            console.log(this.playerOne.name + " wins this game! with the score of " + this.playerOne.score);
+            }
+            else {
+                console.log(this.playerTwo.name + " wins this game! with the score of " + this.playerTwo.score);
+            }
     }
+        
 }
-
-}
-
-  module.exports = Game;        
- 
-
+ module.exports = Game;        
+        

@@ -9,7 +9,7 @@ class Player{
         this.gesture = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
     }
     displayChoices(){
-       console.log(this.gesture);
+       console.log("The gesture choices are " + " " + this.gesture);
     }
 } 
 
@@ -35,10 +35,10 @@ class Ai extends Player{
     }
     aiRandomChoice() {
         let randomChoice = this.gesture[Math.floor(Math.random()*this.gesture.length)];
-        console.log(randomChoice);
+        console.log(this.name + "'s " + " " + "gesture choices : " + randomChoice);
         return randomChoice;
     }     
-}  
+}   
 
 
 module.exports.Player = Player;
